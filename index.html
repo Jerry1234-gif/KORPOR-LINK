@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KORPOR-LINK</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <div id="login-screen" class="screen active">
+            <div class="login-header">KORPOR-LINK</div>
+            <div class="login-form">
+                <input type="email" id="email-input" placeholder="Email Address">
+                <input type="password" id="password-input" placeholder="Password">
+                <button id="login-button">Log In</button>
+                <a href="#" class="forgot-password">Forgot Password?</a>
+                <div class="signup-text">Don't have an account? <a href="#">Sign Up</a></div>
+            </div>
+        </div>
+
+        <div id="main-app" class="hidden">
+            <div class="header">
+                <span class="material-icons menu-icon">menu</span>
+                <div class="app-title">KORPOR-LINK</div>
+                <span class="material-icons search-icon">search</span>
+            </div>
+
+            <div class="content">
+                <div id="dashboard-screen" class="tab-content active">
+                    <div class="profile-summary">
+                        <img src="https://via.placeholder.com/50" alt="Profile" class="profile-pic">
+                        <div class="welcome-text">Jeremiah.H. Kamara</div>
+                        <div class="net-worth">
+                            <h3>Net Worth</h3>
+                            <p>LE 12,345</p>
+                        </div>
+                    </div>
+                    <div class="add-buttons">
+                        <button class="add-income">Add Income</button>
+                        <button class="add-expense">Add Expense</button>
+                    </div>
+                    <div class="section-title">Income vs. Expenses</div>
+                    <div class="chart-placeholder">Graph goes here</div>
+
+                    <div class="section-title">Budgets</div>
+                    <div class="budget-item">
+                        <span>Food</span>
+                        <span>LE 750 / LE 1000</span>
+                        <div class="progress-bar"><div style="width: 75%;"></div></div>
+                    </div>
+                    <div class="budget-item">
+                        <span>Entertainment</span>
+                        <span>LE 200 / LE 500</span>
+                        <div class="progress-bar"><div style="width: 40%;"></div></div>
+                    </div>
+                    <div class="budget-item">
+                        <span>Rent</span>
+                        <span>LE 1,500 / LE 2,000</span>
+                        <div class="progress-bar"><div style="width: 75%;"></div></div>
+                    </div>
+
+                    <div class="section-title">Recent Activity</div>
+                    <div class="activity-item">
+                        <span class="material-icons">local_grocery_store</span>
+                        <div class="activity-details">
+                            <p>Food</p>
+                            <small>Grocery Store</small>
+                        </div>
+                        <span class="activity-amount">-LE 120</span>
+                    </div>
+                    <div class="activity-item">
+                        <span class="material-icons">movie_filter</span>
+                        <div class="activity-details">
+                            <p>Entertainment</p>
+                            <small>Movie Theater</small>
+                        </div>
+                        <span class="activity-amount">-LE 20</span>
+                    </div>
+                    <div class="activity-item">
+                        <span class="material-icons">house</span>
+                        <div class="activity-details">
+                            <p>Rent</p>
+                            <small>Landlord</small>
+                        </div>
+                        <span class="activity-amount">-LE 1,500</span>
+                    </div>
+                </div>
+
+                <div id="transactions-screen" class="tab-content">
+                    <div class="transactions-header">
+                        <h3>Transactions</h3>
+                    </div>
+                    <div class="transaction-list">
+                        <div class="transaction-day">
+                            <h4>Today</h4>
+                            <div class="transaction-item">
+                                <span class="material-icons">local_grocery_store</span>
+                                <div class="details">
+                                    <p>Groceries</p>
+                                    <small>12:30 PM</small>
+                                </div>
+                                <span class="amount">-LE 120.00</span>
+                            </div>
+                            <div class="transaction-item">
+                                <span class="material-icons">local_cafe</span>
+                                <div class="details">
+                                    <p>Coffee</p>
+                                    <small>09:00 AM</small>
+                                </div>
+                                <span class="amount">-LE 5.00</span>
+                            </div>
+                        </div>
+                        <div class="transaction-day">
+                            <h4>Yesterday</h4>
+                            <div class="transaction-item">
+                                <span class="material-icons">restaurant</span>
+                                <div class="details">
+                                    <p>Dinner</p>
+                                    <small>08:00 PM</small>
+                                </div>
+                                <span class="amount">-LE 50.00</span>
+                            </div>
+                            <div class="transaction-item">
+                                <span class="material-icons">local_gas_station</span>
+                                <div class="details">
+                                    <p>Gas</p>
+                                    <small>06:30 PM</small>
+                                </div>
+                                <span class="amount">-LE 40.00</span>
+                            </div>
+                            <div class="transaction-item">
+                                <span class="material-icons">shopping_bag</span>
+                                <div class="details">
+                                    <p>Shopping</p>
+                                    <small>02:00 PM</small>
+                                </div>
+                                <span class="amount">-LE 150.00</span>
+                            </div>
+                            <div class="transaction-item">
+                                <span class="material-icons">lunch_dining</span>
+                                <div class="details">
+                                    <p>Lunch</p>
+                                    <small>11:00 AM</small>
+                                </div>
+                                <span class="amount">-LE 20.00</span>
+                            </div>
+                            <div class="transaction-item">
+                                <span class="material-icons">local_cafe</span>
+                                <div class="details">
+                                    <p>Coffee</p>
+                                    <small>09:00 AM</small>
+                                </div>
+                                <span class="amount">-LE 5.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="add-transaction-btn">+</button>
+                </div>
+
+                <div id="accounts-screen" class="tab-content">
+                    <h3>Accounts</h3>
+                    <div class="account-item">
+                        <span>Savings Account</span>
+                        <span>LE 1,234.56</span>
+                    </div>
+                    <div class="account-item">
+                        <span>Orange Money</span>
+                        <span>LE 567.89</span>
+                    </div>
+                    <div class="account-item">
+                        <span>Afrimoney</span>
+                        <span>LE 90.00</span>
+                    </div>
+                    <div class="account-item">
+                        <span>Checking</span>
+                        <span>LE 2,045.31</span>
+                    </div>
+                    <div class="account-item">
+                        <span>QMoney</span>
+                        <span>LE 3,043.67</span>
+                    </div>
+
+                    <div class="add-account-form">
+                        <h4>Add New Account</h4>
+                        <input type="text" placeholder="Enter account name">
+                        <select>
+                            <option>Select account type</option>
+                            <option>Savings</option>
+                            <option>Checking</option>
+                            <option>Mobile Money</option>
+                        </select>
+                        <input type="number" placeholder="Starting balance">
+                        <button>Add Account</button>
+                    </div>
+                    <div class="account-tabs">
+                        <button class="active">All Accounts</button>
+                        <button>Local Accounts</button>
+                        <button>International Accounts</button>
+                    </div>
+                </div>
+
+                <div id="budgets-screen" class="tab-content">
+                    <h3>Budgets</h3>
+                    <div class="budget-category-list">
+                        <div class="budget-category-item">
+                            <span class="material-icons">local_grocery_store</span>
+                            <div class="details">
+                                <p>Groceries</p>
+                                <small>Food & Drink</small>
+                            </div>
+                            <div class="budget-amount">60%</div>
+                        </div>
+                        <div class="budget-category-item">
+                            <span class="material-icons">local_gas_station</span>
+                            <div class="details">
+                                <p>Gas</p>
+                                <small>Vehicles, Transportation</small>
+                            </div>
+                            <div class="budget-amount">80%</div>
+                        </div>
+                        <div class="budget-category-item">
+                            <span class="material-icons">movie_filter</span>
+                            <div class="details">
+                                <p>Movies</p>
+                                <small>International, Transactions, Entertainment</small>
+                            </div>
+                            <div class="budget-amount">20%</div>
+                        </div>
+                        <div class="budget-category-item">
+                            <span class="material-icons">checkroom</span>
+                            <div class="details">
+                                <p>Clothes</p>
+                                <small>All Transactions, Shopping</small>
+                            </div>
+                            <div class="budget-amount">40%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="reports-screen" class="tab-content">
+                    <h3>Reports</h3>
+                    <div class="report-period-selector">
+                        <button class="active">Weekly</button>
+                        <button>Monthly</button>
+                        <button>Yearly</button>
+                    </div>
+                    <div class="report-summary">
+                        <div class="summary-card">
+                            <p>Total Income</p>
+                            <span>LE 2,500</span>
+                        </div>
+                        <div class="summary-card">
+                            <p>Total Expenses</p>
+                            <span>LE 1,800</span>
+                        </div>
+                        <div class="summary-card">
+                            <p>Net Savings</p>
+                            <span>LE 700</span>
+                        </div>
+                    </div>
+                    <div class="section-title">Spending by Category</div>
+                    <div class="category-bars">
+                        <div class="category-bar" style="width: 30%;">Food</div>
+                        <div class="category-bar" style="width: 20%;">Transport</div>
+                        <div class="category-bar" style="width: 25%;">Entertainment</div>
+                        <div class="category-bar" style="width: 15%;">Utilities</div>
+                        <div class="category-bar" style="width: 10%;">Other</div>
+                    </div>
+                    <div class="section-title">Income vs. Expenses</div>
+                    <div class="chart-placeholder">Line graph goes here</div>
+                    <div class="chart-months">
+                        <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span>
+                    </div>
+                </div>
+
+                <div id="settings-screen" class="tab-content">
+                    <h3>Settings</h3>
+                    <h4>Personal Information</h4>
+                    <div class="setting-item">
+                        <p>Full Name</p>
+                        <span>FSFSFS</span>
+                    </div>
+                    <div class="setting-item">
+                        <p>Email Address</p>
+                        <span>example@email.com</span>
+                    </div>
+                    <div class="setting-item">
+                        <p>Currency Preference</p>
+                        <span>LE</span>
+                    </div>
+                    <h4>Notification Settings</h4>
+                    <div class="setting-toggle">
+                        <p>Budget Alerts</p>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="setting-toggle">
+                        <p>Recurring Expense Reminders</p>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="setting-toggle">
+                        <p>Recurring Income Reminders</p>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <h4>Account Actions</h4>
+                    <button class="action-button">Change Password</button>
+                    <button class="action-button logout-button">Log Out</button>
+                </div>
+            </div>
+
+            <div class="nav-bar">
+                <div class="nav-item active" data-tab="dashboard-screen">
+                    <span class="material-icons">home</span>
+                    <small>Home</small>
+                </div>
+                <div class="nav-item" data-tab="transactions-screen">
+                    <span class="material-icons">swap_horiz</span>
+                    <small>Transactions</small>
+                </div>
+                <div class="nav-item" data-tab="accounts-screen">
+                    <span class="material-icons">account_balance_wallet</span>
+                    <small>Accounts</small>
+                </div>
+                <div class="nav-item" data-tab="budgets-screen">
+                    <span class="material-icons">credit_card</span>
+                    <small>Budgets</small>
+                </div>
+                <div class="nav-item" data-tab="reports-screen">
+                    <span class="material-icons">bar_chart</span>
+                    <small>Reports</small>
+                </div>
+                <div class="nav-item" data-tab="settings-screen">
+                    <span class="material-icons">settings</span>
+                    <small>Settings</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,749 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Dark background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #e0e0e0; /* Light text color */
+}
+
+.app-container {
+    width: 100%;
+    max-width: 400px; /* Typical mobile width */
+    height: 800px; /* Typical mobile height */
+    background-color: #1a1a1a; /* Slightly lighter dark background for the app */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- General Screen and Content Styling --- */
+.screen {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    display: none; /* Hidden by default */
+}
+
+.screen.active {
+    display: flex; /* Show active screen */
+}
+
+.hidden {
+    display: none !important;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #222222;
+    color: #e0e0e0;
+    font-size: 1.2em;
+    border-bottom: 1px solid #333;
+}
+
+.menu-icon, .search-icon {
+    cursor: pointer;
+    font-size: 1.8em;
+}
+
+.app-title {
+    font-weight: bold;
+}
+
+.content {
+    flex-grow: 1;
+    overflow-y: auto; /* Enable scrolling for content */
+    padding: 15px;
+    padding-bottom: 70px; /* Space for nav bar */
+}
+
+.tab-content {
+    display: none; /* Hidden by default */
+    padding-bottom: 20px; /* Add some padding at the bottom of each tab */
+}
+
+.tab-content.active {
+    display: block; /* Show active tab content */
+}
+
+.section-title {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #f0f0f0;
+}
+
+/* --- Login Screen --- */
+#login-screen {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #1a1a1a;
+}
+
+.login-header {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #90ee90; /* Light green for the brand name */
+    margin-bottom: 40px;
+}
+
+.login-form input {
+    width: calc(100% - 30px);
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #333;
+    color: #e0e0e0;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.login-form input::placeholder {
+    color: #aaa;
+}
+
+#login-button {
+    width: calc(100% - 30px);
+    padding: 15px;
+    background-color: #4CAF50; /* Green login button */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#login-button:hover {
+    background-color: #45a049;
+}
+
+.forgot-password, .signup-text a {
+    color: #90ee90;
+    text-decoration: none;
+    font-size: 0.9em;
+    margin-top: 10px;
+    display: block;
+}
+
+.signup-text {
+    margin-top: 20px;
+    color: #ccc;
+}
+
+/* --- Navigation Bar --- */
+.nav-bar {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    background-color: #222222;
+    border-top: 1px solid #333;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.nav-item.active {
+    color: #90ee90; /* Active tab color */
+}
+
+.nav-item:hover {
+    color: #e0e0e0;
+}
+
+.nav-item .material-icons {
+    font-size: 1.8em;
+    margin-bottom: 3px;
+}
+
+.nav-item small {
+    font-size: 0.7em;
+}
+
+/* --- Dashboard Specific Styles --- */
+.profile-summary {
+    display: flex;
+    align-items: center;
+    background-color: #2a2a2a;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.welcome-text {
+    font-size: 1.1em;
+    font-weight: bold;
+    flex-grow: 1;
+}
+
+.net-worth {
+    text-align: right;
+}
+
+.net-worth h3 {
+    margin: 0;
+    font-size: 0.9em;
+    color: #aaa;
+}
+
+.net-worth p {
+    margin: 5px 0 0;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #90ee90;
+}
+
+.add-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.add-income, .add-expense {
+    flex: 1;
+    padding: 12px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-income {
+    background-color: #4CAF50;
+    color: white;
+}
+.add-income:hover {
+    background-color: #45a049;
+}
+
+.add-expense {
+    background-color: #FF6347; /* Tomato */
+    color: white;
+}
+.add-expense:hover {
+    background-color: #e05c3f;
+}
+
+.chart-placeholder {
+    height: 150px;
+    background-color: #333;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #aaa;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.budget-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+}
+
+.budget-item:last-child {
+    border-bottom: none;
+}
+
+.progress-bar {
+    width: 100px; /* Adjust as needed */
+    height: 8px;
+    background-color: #444;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-left: 10px;
+}
+
+.progress-bar div {
+    height: 100%;
+    background-color: #90ee90;
+    border-radius: 4px;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+}
+
+.activity-item .material-icons {
+    font-size: 1.8em;
+    margin-right: 15px;
+    color: #90ee90;
+}
+
+.activity-details {
+    flex-grow: 1;
+}
+
+.activity-details p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.activity-details small {
+    color: #aaa;
+}
+
+.activity-amount {
+    font-weight: bold;
+    color: #FF6347; /* Red for expenses */
+}
+
+/* --- Transactions Specific Styles --- */
+.transactions-header {
+    margin-bottom: 20px;
+}
+.transactions-header h3 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #e0e0e0;
+}
+
+.transaction-day h4 {
+    margin: 15px 0 10px;
+    color: #ccc;
+}
+
+.transaction-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+}
+
+.transaction-item:last-child {
+    border-bottom: none;
+}
+
+.transaction-item .material-icons {
+    font-size: 1.8em;
+    margin-right: 15px;
+    color: #90ee90; /* Green for icons */
+}
+
+.transaction-item .details {
+    flex-grow: 1;
+}
+
+.transaction-item .details p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.transaction-item .details small {
+    color: #aaa;
+}
+
+.transaction-item .amount {
+    font-weight: bold;
+    color: #FF6347; /* Red for expenses */
+}
+
+.add-transaction-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #90ee90;
+    color: #1a1a1a;
+    font-size: 2em;
+    border: none;
+    position: fixed; /* Fixed position */
+    bottom: 80px; /* Above nav bar */
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.add-transaction-btn:hover {
+    background-color: #7ac77a;
+}
+
+/* --- Accounts Specific Styles --- */
+.account-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2a2a2a;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.account-item span:first-child {
+    color: #e0e0e0;
+}
+.account-item span:last-child {
+    color: #90ee90;
+}
+
+.add-account-form {
+    background-color: #2a2a2a;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.add-account-form h4 {
+    margin-top: 0;
+    color: #e0e0e0;
+}
+
+.add-account-form input,
+.add-account-form select {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #333;
+    color: #e0e0e0;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.add-account-form select {
+    appearance: none; /* Remove default arrow */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20512%22%3E%3Cpath%20fill%3D%22%23e0e0e0%22%20d%3D%22M25.75%20182.25L128%20284.5l102.25-102.25C232.8%20177.5%20224%20160%20208%20160H48c-16%200-24.8%2017.5-16.25%2022.25z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 1em;
+}
+
+.add-account-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #90ee90;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-account-form button:hover {
+    background-color: #7ac77a;
+}
+
+.account-tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.account-tabs button {
+    flex: 1;
+    padding: 10px;
+    background-color: transparent;
+    color: #ccc;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.account-tabs button.active {
+    background-color: #90ee90;
+    color: #1a1a1a;
+}
+
+.account-tabs button:hover:not(.active) {
+    background-color: #444;
+}
+
+/* --- Budgets Specific Styles --- */
+.budget-category-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.budget-category-item {
+    display: flex;
+    align-items: center;
+    background-color: #2a2a2a;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.budget-category-item .material-icons {
+    font-size: 2em;
+    margin-right: 15px;
+    color: #90ee90;
+}
+
+.budget-category-item .details {
+    flex-grow: 1;
+}
+
+.budget-category-item .details p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.budget-category-item .details small {
+    color: #aaa;
+}
+
+.budget-amount {
+    font-weight: bold;
+    color: #90ee90;
+    font-size: 1.1em;
+}
+
+/* --- Reports Specific Styles --- */
+.report-period-selector {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.report-period-selector button {
+    flex: 1;
+    padding: 8px;
+    background-color: transparent;
+    color: #ccc;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.report-period-selector button.active {
+    background-color: #90ee90;
+    color: #1a1a1a;
+}
+.report-period-selector button:hover:not(.active) {
+    background-color: #3a3a3a;
+}
+
+.report-summary {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.summary-card {
+    flex: 1;
+    background-color: #2a2a2a;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.summary-card p {
+    margin: 0;
+    font-size: 0.8em;
+    color: #aaa;
+}
+
+.summary-card span {
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 5px;
+    color: #90ee90;
+}
+
+.category-bars {
+    background-color: #2a2a2a;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.category-bar {
+    background-color: #90ee90;
+    margin-bottom: 8px;
+    padding: 8px;
+    color: #1a1a1a;
+    font-weight: bold;
+    border-radius: 4px;
+    text-align: right;
+}
+
+.chart-months {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    font-size: 0.8em;
+    color: #aaa;
+}
+
+/* --- Settings Specific Styles --- */
+.setting-item {
+    background-color: #2a2a2a;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.setting-item p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.setting-item span {
+    color: #90ee90;
+}
+
+.setting-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2a2a2a;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.setting-toggle p {
+    margin: 0;
+    font-weight: bold;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 24px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 24px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #90ee90;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #90ee90;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 24px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.action-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #444;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: #444;
+}
+
+.logout-button {
+    background-color: #FF6347; /* Red for logout */
+    color: white;
+    border: none;
+}
+.logout-button:hover {
+    background-color: #e05c3f;
+}
